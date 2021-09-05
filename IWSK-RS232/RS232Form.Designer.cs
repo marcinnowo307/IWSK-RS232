@@ -32,31 +32,37 @@ namespace IWSK_RS232
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.terminatorTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.transactionCheckBox = new System.Windows.Forms.CheckBox();
+            this.dataBitsComboBox = new System.Windows.Forms.ComboBox();
+            this.speedComboBox = new System.Windows.Forms.ComboBox();
+            this.stopBitsComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.timeoutEdit = new System.Windows.Forms.TextBox();
+            this.applyButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.flowControlComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.parityComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.portComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.pingButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.sendButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.text = new System.Windows.Forms.TabPage();
+            this.textInput = new System.Windows.Forms.TextBox();
             this.binary = new System.Windows.Forms.TabPage();
+            this.binaryInput = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.outputConsole = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -64,6 +70,8 @@ namespace IWSK_RS232
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.text.SuspendLayout();
+            this.binary.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,32 +98,138 @@ namespace IWSK_RS232
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(122, 587);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(121, 587);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.terminatorTextBox);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.transactionCheckBox);
+            this.groupBox1.Controls.Add(this.dataBitsComboBox);
+            this.groupBox1.Controls.Add(this.speedComboBox);
+            this.groupBox1.Controls.Add(this.stopBitsComboBox);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.timeoutEdit);
+            this.groupBox1.Controls.Add(this.applyButton);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.flowControlComboBox);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.parityComboBox);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.portComboBox);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(122, 412);
+            this.groupBox1.Size = new System.Drawing.Size(122, 435);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
+            // 
+            // terminatorTextBox
+            // 
+            this.terminatorTextBox.Location = new System.Drawing.Point(7, 308);
+            this.terminatorTextBox.MaxLength = 4;
+            this.terminatorTextBox.Name = "terminatorTextBox";
+            this.terminatorTextBox.Size = new System.Drawing.Size(102, 23);
+            this.terminatorTextBox.TabIndex = 22;
+            this.terminatorTextBox.Text = "0D0A";
+            this.terminatorTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.terminatorTextBox_Validating);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 290);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 15);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Terminator:";
+            // 
+            // transactionCheckBox
+            // 
+            this.transactionCheckBox.AutoSize = true;
+            this.transactionCheckBox.Checked = true;
+            this.transactionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.transactionCheckBox.Location = new System.Drawing.Point(7, 337);
+            this.transactionCheckBox.Name = "transactionCheckBox";
+            this.transactionCheckBox.Size = new System.Drawing.Size(86, 19);
+            this.transactionCheckBox.TabIndex = 20;
+            this.transactionCheckBox.Text = "Transaction";
+            this.transactionCheckBox.UseVisualStyleBackColor = true;
+            this.transactionCheckBox.CheckedChanged += new System.EventHandler(this.transactionCheckBox_CheckedChanged);
+            // 
+            // dataBitsComboBox
+            // 
+            this.dataBitsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dataBitsComboBox.FormattingEnabled = true;
+            this.dataBitsComboBox.Items.AddRange(new object[] {
+            7,
+            8});
+            this.dataBitsComboBox.Location = new System.Drawing.Point(7, 129);
+            this.dataBitsComboBox.Name = "dataBitsComboBox";
+            this.dataBitsComboBox.Size = new System.Drawing.Size(102, 23);
+            this.dataBitsComboBox.TabIndex = 19;
+            // 
+            // speedComboBox
+            // 
+            this.speedComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.speedComboBox.FormattingEnabled = true;
+            this.speedComboBox.Items.AddRange(new object[] {
+            110,
+            300,
+            1200,
+            2400,
+            4800,
+            9600,
+            19200,
+            38400,
+            57600,
+            115200});
+            this.speedComboBox.Location = new System.Drawing.Point(7, 85);
+            this.speedComboBox.Name = "speedComboBox";
+            this.speedComboBox.Size = new System.Drawing.Size(102, 23);
+            this.speedComboBox.TabIndex = 18;
+            // 
+            // stopBitsComboBox
+            // 
+            this.stopBitsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stopBitsComboBox.FormattingEnabled = true;
+            this.stopBitsComboBox.Items.AddRange(new object[] {
+            1,
+            2});
+            this.stopBitsComboBox.Location = new System.Drawing.Point(7, 174);
+            this.stopBitsComboBox.Name = "stopBitsComboBox";
+            this.stopBitsComboBox.Size = new System.Drawing.Size(102, 23);
+            this.stopBitsComboBox.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 354);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 15);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Timeout:";
+            // 
+            // timeoutEdit
+            // 
+            this.timeoutEdit.Location = new System.Drawing.Point(5, 372);
+            this.timeoutEdit.Name = "timeoutEdit";
+            this.timeoutEdit.Size = new System.Drawing.Size(104, 23);
+            this.timeoutEdit.TabIndex = 15;
+            this.timeoutEdit.Text = "1000";
+            // 
+            // applyButton
+            // 
+            this.applyButton.Location = new System.Drawing.Point(5, 401);
+            this.applyButton.Name = "applyButton";
+            this.applyButton.Size = new System.Drawing.Size(105, 23);
+            this.applyButton.TabIndex = 14;
+            this.applyButton.Text = "Configure";
+            this.applyButton.UseVisualStyleBackColor = true;
+            this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
             // label6
             // 
@@ -126,13 +240,19 @@ namespace IWSK_RS232
             this.label6.TabIndex = 13;
             this.label6.Text = "Flow control:";
             // 
-            // comboBox3
+            // flowControlComboBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(6, 264);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(103, 23);
-            this.comboBox3.TabIndex = 12;
+            this.flowControlComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.flowControlComboBox.FormattingEnabled = true;
+            this.flowControlComboBox.Items.AddRange(new object[] {
+            "None",
+            "XOnXOff",
+            "RequestToSend",
+            "RequestToSendXOnXOff"});
+            this.flowControlComboBox.Location = new System.Drawing.Point(6, 264);
+            this.flowControlComboBox.Name = "flowControlComboBox";
+            this.flowControlComboBox.Size = new System.Drawing.Size(103, 23);
+            this.flowControlComboBox.TabIndex = 12;
             // 
             // label5
             // 
@@ -143,14 +263,19 @@ namespace IWSK_RS232
             this.label5.TabIndex = 11;
             this.label5.Text = "Parity:";
             // 
-            // comboBox2
+            // parityComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.comboBox2.Location = new System.Drawing.Point(5, 217);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(104, 23);
-            this.comboBox2.TabIndex = 10;
+            this.parityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.parityComboBox.FormattingEnabled = true;
+            this.parityComboBox.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.parityComboBox.Items.AddRange(new object[] {
+            "Even",
+            "Odd",
+            "None"});
+            this.parityComboBox.Location = new System.Drawing.Point(5, 217);
+            this.parityComboBox.Name = "parityComboBox";
+            this.parityComboBox.Size = new System.Drawing.Size(104, 23);
+            this.parityComboBox.TabIndex = 10;
             // 
             // label4
             // 
@@ -160,27 +285,6 @@ namespace IWSK_RS232
             this.label4.Size = new System.Drawing.Size(56, 15);
             this.label4.TabIndex = 9;
             this.label4.Text = "Stop bits:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(6, 173);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(103, 23);
-            this.textBox4.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(5, 129);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(104, 23);
-            this.textBox3.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(103, 23);
-            this.textBox2.TabIndex = 6;
             // 
             // label3
             // 
@@ -209,38 +313,60 @@ namespace IWSK_RS232
             this.label1.TabIndex = 1;
             this.label1.Text = "Port:";
             // 
-            // comboBox1
+            // portComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.comboBox1.Location = new System.Drawing.Point(6, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(103, 23);
-            this.comboBox1.TabIndex = 0;
+            this.portComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.portComboBox.FormattingEnabled = true;
+            this.portComboBox.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.portComboBox.Location = new System.Drawing.Point(6, 40);
+            this.portComboBox.Name = "portComboBox";
+            this.portComboBox.Size = new System.Drawing.Size(103, 23);
+            this.portComboBox.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Location = new System.Drawing.Point(3, 421);
+            this.groupBox2.Controls.Add(this.searchButton);
+            this.groupBox2.Controls.Add(this.pingButton);
+            this.groupBox2.Location = new System.Drawing.Point(3, 444);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(163, 157);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actions";
             // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(7, 53);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(102, 23);
+            this.searchButton.TabIndex = 1;
+            this.searchButton.Text = "Search for Ports";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // pingButton
+            // 
+            this.pingButton.Location = new System.Drawing.Point(7, 23);
+            this.pingButton.Name = "pingButton";
+            this.pingButton.Size = new System.Drawing.Size(103, 23);
+            this.pingButton.TabIndex = 0;
+            this.pingButton.Text = "Ping";
+            this.pingButton.UseVisualStyleBackColor = true;
+            this.pingButton.Click += new System.EventHandler(this.pingButton_Click);
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.groupBox3);
             this.flowLayoutPanel2.Controls.Add(this.groupBox4);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(131, 3);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(130, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(899, 587);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(900, 587);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.sendButton);
             this.groupBox3.Controls.Add(this.tabControl1);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
@@ -249,14 +375,15 @@ namespace IWSK_RS232
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Input";
             // 
-            // button1
+            // sendButton
             // 
-            this.button1.Location = new System.Drawing.Point(754, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 47);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
+            this.sendButton.Location = new System.Drawing.Point(754, 91);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(127, 47);
+            this.sendButton.TabIndex = 1;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // tabControl1
             // 
@@ -267,9 +394,11 @@ namespace IWSK_RS232
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(742, 120);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // text
             // 
+            this.text.Controls.Add(this.textInput);
             this.text.Location = new System.Drawing.Point(4, 24);
             this.text.Name = "text";
             this.text.Padding = new System.Windows.Forms.Padding(3);
@@ -278,19 +407,39 @@ namespace IWSK_RS232
             this.text.Text = "Text";
             this.text.UseVisualStyleBackColor = true;
             // 
+            // textInput
+            // 
+            this.textInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textInput.Location = new System.Drawing.Point(3, 3);
+            this.textInput.Multiline = true;
+            this.textInput.Name = "textInput";
+            this.textInput.Size = new System.Drawing.Size(728, 86);
+            this.textInput.TabIndex = 0;
+            // 
             // binary
             // 
+            this.binary.Controls.Add(this.binaryInput);
             this.binary.Location = new System.Drawing.Point(4, 24);
             this.binary.Name = "binary";
             this.binary.Padding = new System.Windows.Forms.Padding(3);
-            this.binary.Size = new System.Drawing.Size(694, 92);
+            this.binary.Size = new System.Drawing.Size(734, 92);
             this.binary.TabIndex = 1;
             this.binary.Text = "Binary";
             this.binary.UseVisualStyleBackColor = true;
             // 
+            // binaryInput
+            // 
+            this.binaryInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.binaryInput.Location = new System.Drawing.Point(3, 3);
+            this.binaryInput.Multiline = true;
+            this.binaryInput.Name = "binaryInput";
+            this.binaryInput.Size = new System.Drawing.Size(728, 86);
+            this.binaryInput.TabIndex = 0;
+            this.binaryInput.TextChanged += new System.EventHandler(this.binaryInput_TextChanged);
+            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.outputConsole);
             this.groupBox4.Location = new System.Drawing.Point(3, 157);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(887, 421);
@@ -298,49 +447,16 @@ namespace IWSK_RS232
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Output";
             // 
-            // textBox1
+            // outputConsole
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 19);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(881, 399);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(5, 383);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Apply";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(7, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Ping";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(5, 354);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(104, 23);
-            this.textBox5.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 336);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 15);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Timeout:";
+            this.outputConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.outputConsole.Location = new System.Drawing.Point(3, 19);
+            this.outputConsole.Multiline = true;
+            this.outputConsole.Name = "outputConsole";
+            this.outputConsole.ReadOnly = true;
+            this.outputConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.outputConsole.Size = new System.Drawing.Size(881, 399);
+            this.outputConsole.TabIndex = 0;
             // 
             // RS232Form
             // 
@@ -361,6 +477,10 @@ namespace IWSK_RS232
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.text.ResumeLayout(false);
+            this.text.PerformLayout();
+            this.binary.ResumeLayout(false);
+            this.binary.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -375,28 +495,34 @@ namespace IWSK_RS232
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage text;
         private System.Windows.Forms.TabPage binary;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox outputConsole;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox flowControlComboBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox parityComboBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox portComboBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox timeoutEdit;
+        private System.Windows.Forms.Button applyButton;
+        private System.Windows.Forms.Button pingButton;
+        private System.Windows.Forms.ComboBox dataBitsComboBox;
+        private System.Windows.Forms.ComboBox speedComboBox;
+        private System.Windows.Forms.ComboBox stopBitsComboBox;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.CheckBox transactionCheckBox;
+        private System.Windows.Forms.TextBox textInput;
+        private System.Windows.Forms.TextBox binaryInput;
+        private System.Windows.Forms.TextBox terminatorTextBox;
+        private System.Windows.Forms.Label label8;
     }
 }
 
