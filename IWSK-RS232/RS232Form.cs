@@ -110,11 +110,9 @@ namespace IWSK_RS232
             serialPort.Parity = (Parity)Enum.Parse(typeof(Parity), parityComboBox.Text);
             serialPort.Handshake = (Handshake)Enum.Parse(typeof(Handshake), flowControlComboBox.Text);
             serialPort.DataReceived += new SerialDataReceivedEventHandler(dataReceivedHandler);
-            if (transactionCheckBox.Checked)
-            {
-                serialPort.ReadTimeout = int.Parse(timeoutEdit.Text);
-                serialPort.WriteTimeout = int.Parse(timeoutEdit.Text);
-            }
+            serialPort.ReadTimeout = int.Parse(timeoutEdit.Text);
+            serialPort.WriteTimeout = int.Parse(timeoutEdit.Text);
+            
         }
 
         private void dataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
@@ -160,19 +158,8 @@ namespace IWSK_RS232
             return msg.Replace(terminator, "");
         }
 
-        private void transactionCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            timeoutEdit.Enabled = transactionCheckBox.Checked;
-        }
-
         private void pingButton_Click(object sender, EventArgs e)
         {
-            if (serialPort.WriteTimeout == SerialPort.InfiniteTimeout || serialPort.ReadTimeout == SerialPort.InfiniteTimeout)
-            {
-                printMsg("transactions need to be turned on in order to perform ping operation");
-                return;
-            }
-
             printMsg("sending ping message");
             lastPing = DateTime.Now;
             serialPort.Write(pingMessage + getTerminationCharacters());

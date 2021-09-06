@@ -34,7 +34,6 @@ namespace IWSK_RS232
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.terminatorTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.transactionCheckBox = new System.Windows.Forms.CheckBox();
             this.dataBitsComboBox = new System.Windows.Forms.ComboBox();
             this.speedComboBox = new System.Windows.Forms.ComboBox();
             this.stopBitsComboBox = new System.Windows.Forms.ComboBox();
@@ -105,7 +104,6 @@ namespace IWSK_RS232
             // 
             this.groupBox1.Controls.Add(this.terminatorTextBox);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.transactionCheckBox);
             this.groupBox1.Controls.Add(this.dataBitsComboBox);
             this.groupBox1.Controls.Add(this.speedComboBox);
             this.groupBox1.Controls.Add(this.stopBitsComboBox);
@@ -146,19 +144,6 @@ namespace IWSK_RS232
             this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 21;
             this.label8.Text = "Terminator:";
-            // 
-            // transactionCheckBox
-            // 
-            this.transactionCheckBox.AutoSize = true;
-            this.transactionCheckBox.Checked = true;
-            this.transactionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.transactionCheckBox.Location = new System.Drawing.Point(7, 337);
-            this.transactionCheckBox.Name = "transactionCheckBox";
-            this.transactionCheckBox.Size = new System.Drawing.Size(86, 19);
-            this.transactionCheckBox.TabIndex = 20;
-            this.transactionCheckBox.Text = "Transaction";
-            this.transactionCheckBox.UseVisualStyleBackColor = true;
-            this.transactionCheckBox.CheckedChanged += new System.EventHandler(this.transactionCheckBox_CheckedChanged);
             // 
             // dataBitsComboBox
             // 
@@ -518,7 +503,6 @@ namespace IWSK_RS232
         private System.Windows.Forms.ComboBox speedComboBox;
         private System.Windows.Forms.ComboBox stopBitsComboBox;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.CheckBox transactionCheckBox;
         private System.Windows.Forms.TextBox textInput;
         private System.Windows.Forms.TextBox binaryInput;
         private System.Windows.Forms.TextBox terminatorTextBox;
