@@ -23,7 +23,7 @@ namespace IWSK_RS232
         private static readonly string pingMessage = "_ping_";
         private static readonly string pingResponse = "_gnip_";
 
-        private static string tmpString;
+        private static string receivedMessageBuffer;
         private static string messageString;
         private SerialPort serialPort = new SerialPort();
         private InputMode inputMode = InputMode.Text;
@@ -124,7 +124,7 @@ namespace IWSK_RS232
             if (indata == pingMessage)
             {
                 asyncPrintMsg("received ping message");
-                serialPort.Write(pingResponse + getTerminationCharacters());
+                transmitData(pingResponse + getTerminationCharacters());
                 asyncPrintMsg("responded to ping message");
                 return;
             }
@@ -141,10 +141,10 @@ namespace IWSK_RS232
 
         private bool readMessage()
         {
-            tmpString += serialPort.ReadExisting();
-            if (tmpString.Contains(getTerminationCharacters())) {
-                messageString = tmpString;
-                tmpString = string.Empty;
+            receivedMessageBuffer += serialPort.ReadExisting();
+            if (receivedMessageBuffer.Contains(getTerminationCharacters())) {
+                messageString = receivedMessageBuffer;
+                receivedMessageBuffer = string.Empty;
                 if (getTerminationCharacters() != "")
                     messageString = removeTerminator(messageString, getTerminationCharacters());
                 return true;
@@ -162,16 +162,20 @@ namespace IWSK_RS232
         {
             printMsg("sending ping message");
             lastPing = DateTime.Now;
-            serialPort.Write(pingMessage + getTerminationCharacters());
+            transmitData(pingMessage + getTerminationCharacters());
+        }
+
+        private void transmitData(string data)
+        {
+            if (serialPort != null && serialPort.IsOpen)
+                serialPort.Write(data);
+            else
+                printMsg("open a port first");
         }
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            if (!serialPort.IsOpen)
-                return;
-
             sendMessage();
-
         }
 
         private void sendMessage()
@@ -191,7 +195,7 @@ namespace IWSK_RS232
             }
             try
             {
-                serialPort.Write(msg + getTerminationCharacters());
+                transmitData(msg + getTerminationCharacters());
                 textInput.Text = string.Empty;
             } 
             catch (InvalidOperationException)
